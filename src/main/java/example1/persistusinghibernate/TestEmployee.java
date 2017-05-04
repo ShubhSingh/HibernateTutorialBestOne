@@ -17,7 +17,7 @@ public class TestEmployee {
 		config.addAnnotatedClass(Employee.class);
 		config.configure();
 		
-		//new SchemaExport(config).create(true, true);
+		new SchemaExport(config).create(true, true);
 		
 		// Since Hibernate 4.3.0 onwards SessionFactory is created this way
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(config.getProperties());
