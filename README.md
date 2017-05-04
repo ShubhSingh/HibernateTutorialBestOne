@@ -5,7 +5,7 @@ Steps to Setup DerbyDB:
 
 1. Start Derby by running startNetworkServer.bat
 2. Now In Eclipse open Data Source Explorer View.
-3. Create a new connection with name HibernateDerbyDB and enter following vales.
+3. Create a new connection with name HibernateDerbyDB and enter following values.
 4. Host: localhost
 5. port: 1527
 6. user: user
