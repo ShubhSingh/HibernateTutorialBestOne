@@ -37,7 +37,7 @@ public class TestEvent {
 		Event java101 = new Event();
 		java101.setEventName("Java - 101");
 		Event cplus101 = new Event();
-		java101.setEventName("C++ - 101");
+		cplus101.setEventName("C++ - 101");
 		Event math101 = new Event();
 		math101.setEventName("Math - 101");
 		
@@ -56,8 +56,6 @@ public class TestEvent {
 		session.save(java101);
 		session.save(cplus101);
 		session.save(math101);
-		// No need if we set cascadeType
-		// session.save(rajuDetail);
 		
 		session.getTransaction().commit();
 		

@@ -34,6 +34,8 @@ public class Delegate {
 		this.delagateName = delagateName;
 	}
 	
+	// Always a separate join table is created in case of ManyToMany
+	// If we don't use @JoinTable and @JoinColumn here two join tables will be created instead of one
 	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinTable(name="Join_delegate_Event", 
 			joinColumns={@JoinColumn(name="delegateId")}, 
