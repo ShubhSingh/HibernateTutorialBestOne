@@ -1,4 +1,4 @@
-package example8.onetomany.manytoonemapping.bidirectional;
+package example6.inheritancemapping.discriminator;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,13 +6,14 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-public class TestStudent {
+public class TestInheritance {
 
 	public static void main(String[] args) {
 
 		Configuration config = new Configuration();
-		config.addAnnotatedClass(College.class);
-		config.addAnnotatedClass(Student.class);
+		config.addAnnotatedClass(Project.class);
+		config.addAnnotatedClass(Module.class);
+		config.addAnnotatedClass(Task.class);
 		config.configure();
 		
 		new SchemaExport(config).create(true, true);
@@ -25,29 +26,23 @@ public class TestStudent {
 		
 		session.beginTransaction();
 		
-		College college1 = new College();
-		college1.setCollegeName("Calstate University");
+		Project p = new Project();
+		p.setProjectName("Hibernate Lessons");
 		
-		Student s1 = new Student();
-		s1.setStudentName("Harry Potter");
+		Module m = new Module();
+		m.setProjectName("Spring Lessons");
+		m.setModuleName("AOP");
 		
-		Student s2 = new Student();
-		s2.setStudentName("Ronald Wesley");
+		Task t = new Task();
+		t.setProjectName("Java Lessons");
+		t.setModuleName("Collections");
+		t.setTaskName("ArrayList");
 		
-		// for OneToMany
-		college1.getStudents().add(s1);
-		college1.getStudents().add(s2);
-		// for ManyToOne
-		s1.setCollege(college1);
-		s2.setCollege(college1);
-		
-		session.save(college1);
-		// Since cascade type ALL is set in College you don't need to save Student object explicitly
-		//session.save(s1);
-		//session.save(s2);
+		session.save(p);
+		session.save(m);
+		session.save(t);
 		
 		session.getTransaction().commit();
 		
 	}
-
 }

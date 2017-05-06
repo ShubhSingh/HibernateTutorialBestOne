@@ -7,6 +7,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 @Entity
+/* Even if you don't specify @Inheritance annotation here it uses
+ * below annotation with default inheritance strategy SINGLE_TABLE*/
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE) // Default Inheritance Strategy
 public class Project {
 
