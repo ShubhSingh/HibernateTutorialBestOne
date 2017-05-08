@@ -1,5 +1,6 @@
-package example17.hqlandqueryobject;
+package example17.hqlpagination;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -27,21 +28,27 @@ public class TestEmployee {
 		
 		session.beginTransaction();
 		
-		for(int i=0; i<10; i++) {
+		for(int i=0; i<20; i++) {
 			Employee emp = new Employee();
 			emp.setEmpName("Emp "+ i);
 			session.save(emp);
 		}
 		
-		Query query = session.createQuery("from Employee where empId > 4");
-		List<Employee> employees = query.list();
+		Query query = session.createQuery("select empName from Employee"); // Restrict no. of columns pulled
+		query.setFirstResult(5); // Tells Hibernate to pull from 5th record in table i.e. start point for pagination
+		query.setMaxResults(3); // Tells Hibernate to pull only 3 records i.e. end point for pagination
+		List<String> empNames = (List<String>) query.list();
+		
+		Query q2 = session.createQuery("select new map(empId, empName) from Employee");
+		List map = q2.list();
 		
 		session.getTransaction().commit();
 		
-		for(Employee emp : employees) {
-			System.out.println(emp.getEmpName());
+		for(String emp : empNames) {
+			System.out.println(emp);
 		}
 		
-		System.out.println("Size of list result = "+ employees.size());
+		System.out.println("Size of list result = "+ empNames.size());
+		
 	}
 }
