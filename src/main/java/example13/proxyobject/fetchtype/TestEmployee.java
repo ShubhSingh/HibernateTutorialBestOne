@@ -18,7 +18,7 @@ public class TestEmployee {
 		config.addAnnotatedClass(Address.class);
 		config.configure();
 		
-		//new SchemaExport(config).create(true, true); // run this class with schemaExport disabled
+		new SchemaExport(config).create(true, true); // run this class with schemaExport disabled
 		
 		// Since Hibernate 4.3.0 onwards SessionFactory is created this way
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(config.getProperties());
@@ -54,7 +54,7 @@ public class TestEmployee {
 		
 		session.beginTransaction();
 		
-		karan = (Employee) session.get(Employee.class, 5); 
+		karan = (Employee) session.get(Employee.class, 1); 
 		
 		// AddressList is lazy initialized by default and there is no AddressList available till now
 		session.close(); 

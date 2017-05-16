@@ -3,12 +3,14 @@ package example16.selectbeforeupdate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.SelectBeforeUpdate;
 
 /* @SelectBeforeUpdate annotation tells that do a select before any update and run update 
  * query only if there's a change in the object*/
 @Entity
+@Table(name="Employee_info")
 @SelectBeforeUpdate
 public class Employee {
 

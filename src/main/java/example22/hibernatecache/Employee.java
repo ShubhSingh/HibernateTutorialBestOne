@@ -1,4 +1,4 @@
-package example15.transientdetachedpersistent;
+package example22.hibernatecache;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

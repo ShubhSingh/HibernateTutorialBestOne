@@ -3,8 +3,10 @@ package example14.crud.create;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Employee_info")
 public class Employee {
 
 	private int empId;
