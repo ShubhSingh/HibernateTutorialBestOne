@@ -1,5 +1,5 @@
 # HibernateTutorialBestOne
-It contains some of the basic and advanced Hibernate examples.
+It contains some of the basic and advanced Hibernate examples. Start from example1 and keep going through all the examples in the sequence. By the end of Tutorial most of your Hibernate doubts will be clear and also you will have hands on experience of Hibernate Coding.
 
 Steps to Setup DerbyDB:
 
