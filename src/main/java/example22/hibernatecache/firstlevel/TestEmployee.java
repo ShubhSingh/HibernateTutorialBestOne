@@ -1,4 +1,4 @@
-package example22.hibernatecache;
+package example22.hibernatecache.firstlevel;
 
 import java.util.HashMap;
 import java.util.List;

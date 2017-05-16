@@ -1,4 +1,4 @@
-package example22.hibernatecache;
+package example22.hibernatecache.firstlevel;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
