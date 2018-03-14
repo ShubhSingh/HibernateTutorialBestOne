@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import common.code.Employee;
+
 public class TestEmployee {
 
 	public static void main(String[] args) {
